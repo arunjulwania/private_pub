@@ -46,6 +46,7 @@ function buildPrivatePub(doc) {
     },
 
     sign: function(options) {
+      alert(options)
       if (!self.subscriptions.server) {
         self.subscriptions.server = options.server;
       }
