@@ -46,7 +46,7 @@ function buildPrivatePub(doc) {
     },
 
     sign: function(options) {
-      alert(options)
+      alert("sign")
       if (!self.subscriptions.server) {
         self.subscriptions.server = options.server;
       }
@@ -90,6 +90,7 @@ function buildPrivatePub(doc) {
     },
 
     subscribe: function(channel, callback) {
+      alert("subscribe")
       self.subscriptionCallbacks[channel] = callback;
     }
   };
