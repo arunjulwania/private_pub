@@ -1,4 +1,5 @@
 function buildPrivatePub(doc) {
+  alert("customize gem")
   var self = {
     connecting: false,
     fayeClient: null,
