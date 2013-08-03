@@ -1,5 +1,4 @@
 function buildPrivatePub(doc) {
-  alert("customize gem")
   var self = {
     connecting: false,
     fayeClient: null,
@@ -17,7 +16,8 @@ function buildPrivatePub(doc) {
           self.connecting = true;
           var script = doc.createElement("script");
           script.type = "text/javascript";
-          script.src = self.subscriptions.server + ".js";
+          //script.src = self.subscriptions.server + ".js";
+          script.src = "https://ramfayeserver.herokuapp.com/faye.js";
           script.onload = self.connectToFaye;
           doc.documentElement.appendChild(script);
         }
@@ -26,7 +26,8 @@ function buildPrivatePub(doc) {
 
     connectToFaye: function() {
       alert("connect to faye")
-      self.fayeClient = new Faye.Client(self.subscriptions.server);
+      //self.fayeClient = new Faye.Client("self.subscriptions.server");
+      self.fayeClient = new Faye.Client("https://ramfayeserver.herokuapp.com/faye.js");
       self.fayeClient.addExtension(self.fayeExtension);
       for (var i=0; i < self.fayeCallbacks.length; i++) {
         self.fayeCallbacks[i](self.fayeClient);
